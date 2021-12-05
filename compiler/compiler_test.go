@@ -119,3 +119,9 @@ func TestIntegerObject(expected int64, actual object.Object) error {
 	}
 	return nil
 }
+
+func parse(input string) *ast.Program {
+	l := lexer.New(input)
+	p := parser.New(l)
+	return p.ParseProgram()
+}
